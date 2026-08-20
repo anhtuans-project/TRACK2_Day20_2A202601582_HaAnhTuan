@@ -186,7 +186,13 @@ def bench_dir() -> Path:
 
 
 def runtime_dir() -> Path:
-    return repo_root() / "runtime"
+    # Determine the runtime directory. Prefer the expected location relative to the repo root.
+    candidate = repo_root() / "runtime"
+    if candidate.is_dir():
+        return candidate
+    # Fallback: try one level up in case the repository layout differs.
+    fallback = repo_root().parent / "runtime"
+    return fallback
 
 
 # ─────────────────────────────────────────────────────────── manifests
