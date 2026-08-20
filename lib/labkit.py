@@ -534,7 +534,7 @@ def die(*lines: str) -> None:
 
 
 def banner(title: str) -> None:
-    print(f"\n{'─' * 64}\n  {title}\n{'─' * 64}")
+    print(f"\n{'-' * 64}\n  {title}\n{'-' * 64}")
 
 
 def host_tag() -> str:
